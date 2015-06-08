@@ -12,7 +12,12 @@ module ParagraphTruncator
   #
   # returns a string   
   def self.truncate_text_and_and_tail(string, num_chars, tail)
-    "#{self.truncate(string, num_chars - tail.length)}#{tail}"
+    len_string = num_chars - tail.length
+    if len_string < 0
+      tail
+    else
+      "#{self.truncate(string, len_string)}#{tail}"
+    end
   end
     
     
@@ -23,7 +28,7 @@ module ParagraphTruncator
   #
   # returns a string  
   def self.truncate(string, num_chars)
-    string[0..[num_chars, string.length].min]
+    string[0..[num_chars, string.length].min - 1]
   end
     
 
