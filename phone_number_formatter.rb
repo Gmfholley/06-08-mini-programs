@@ -18,10 +18,36 @@ module PhoneNumberFormatter
     end
   end
   
+  # returns a number formatted as a phone number with dashes
+  #   => 123-456-7890
+  #
+  # number - number or string
+  #
+  def self.return_phone_num_with_parentheses(number)
+    num = return_num_as_string(number)
+    if each_char_is_a_num?(number)
+      if phone_num_right_length?(number)
+        join_phone_num_array_by_dashes(creturn_phone_num_array_with_parenthetical_notation(num))
+      else
+        not_right_num_digits
+      end
+    else
+      not_a_num_error
+    end
+  end
+  
+  # joins the phone number array with dashes
+  #
+  # array - Array
+  #
+  # returns String
   def join_phone_num_array_by_dashes(array)
     array.join('-')
   end
   
+  def return_phone_num_array_with_parenthetical_notation(array)
+    "(#{array[0]}) #{array[1]}-#{array[2]}"
+  end
   
   # returns an Array of size 3 in phone number format
   # => 1234567890 --> [123, 456, 7890] corresponding to area code, first three, last four digits in a phone number
