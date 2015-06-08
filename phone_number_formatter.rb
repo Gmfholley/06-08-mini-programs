@@ -19,7 +19,7 @@ module PhoneNumberFormatter
   end
   
   # returns a number formatted as a phone number with dashes
-  #   => 123-456-7890
+  #   => (123) 456-7890
   #
   # number - number or string
   #
