@@ -6,9 +6,9 @@ module PhoneNumberFormatter
   # number - number or string
   #
   def self.return_phone_num_with_dashes(number)
-    num = return_num_as_string(number)
-    if each_char_is_a_num?(number)
-      if phone_num_right_length?(number)
+   num = return_num_as_string(number)
+    if each_char_is_a_num?(num)
+      if phone_num_right_length?(num)
         join_phone_num_array_by_dashes(convert_string_to_phone_num_array(num))
       else
         not_right_num_digits
@@ -27,7 +27,7 @@ module PhoneNumberFormatter
     num = return_num_as_string(number)
     if each_char_is_a_num?(number)
       if phone_num_right_length?(number)
-        join_phone_num_array_by_dashes(creturn_phone_num_array_with_parenthetical_notation(num))
+        return_phone_num_array_with_parenthetical_notation(convert_string_to_phone_num_array(num))
       else
         not_right_num_digits
       end
@@ -41,11 +41,11 @@ module PhoneNumberFormatter
   # array - Array
   #
   # returns String
-  def join_phone_num_array_by_dashes(array)
+  def self.join_phone_num_array_by_dashes(array)
     array.join('-')
   end
   
-  def return_phone_num_array_with_parenthetical_notation(array)
+  def self.return_phone_num_array_with_parenthetical_notation(array)
     "(#{array[0]}) #{array[1]}-#{array[2]}"
   end
   
@@ -55,8 +55,8 @@ module PhoneNumberFormatter
   # string - String
   #
   # returns Array
-  def convert_string_to_phone_num_array(string)
-    [string[0...2], string[3...5], string[6...9]]
+  def self.convert_string_to_phone_num_array(string)
+    [string[0..2], string[3..5], string[6..9]]
   end
   
   # returns input as a String
@@ -64,7 +64,7 @@ module PhoneNumberFormatter
   # num could be anything but probably a FixedNum
   #
   # returns String
-  def return_num_as_string(num)
+  def self.return_num_as_string(num)
     num.to_s
   end
   
@@ -73,7 +73,7 @@ module PhoneNumberFormatter
   # string - String
   #
   # returns boolean
-  def phone_num_right_length?(string)
+  def self.phone_num_right_length?(string)
     string.length == 10
   end
   
@@ -82,7 +82,7 @@ module PhoneNumberFormatter
   # string - String
   #
   # returns boolean
-  def each_char_is_a_num?(string)
+  def self.each_char_is_a_num?(string)
     is_num = true
     string.each_byte do |c|
       unless ascii_of_nums.include?(c)
@@ -93,16 +93,16 @@ module PhoneNumberFormatter
   end
   
   # Array of the ascii numbers of number characters
-  def ascii_of_nums
-    (48...57)
+  def self.ascii_of_nums
+    (48..57)
   end
   # a string saying it wasn't a number
-  def not_a_num_error
+  def self.not_a_num_error
     "Not a number"
   end
   
   # a string saying it wasn't the correct number of digits
-  def not_right_num_digits
+  def self.not_right_num_digits
     "Not the right number of digits."
   end
   
