@@ -10,10 +10,13 @@ module WordConnector
     sentence = ""
     array.each_with_index do |element, index|
       case index
-      when array.length - 1
+      # for last element, remove comma and add 'and'
+      when array.length - 1  
         sentence += " and #{element}"
+      # for first element, start the sentence
       when 0
         sentence = "#{element}"
+      # for all other elements, use a comma first
       else
         sentence += ", #{element}"
       end
@@ -21,4 +24,5 @@ module WordConnector
     sentence
   end
 
+  
 end
