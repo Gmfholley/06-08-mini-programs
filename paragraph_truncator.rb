@@ -11,7 +11,7 @@ module ParagraphTruncator
   # tail      - string of what to add to the tail
   #
   # returns a string   
-  def self.truncate_text_and_and_tail(string, num_chars, tail)
+  def self.truncate_text_and_tail(string, num_chars, tail)
     # total length of string = num_chars + tail.length.  
     # so the length of the string from string is num_chars - tail.length
     len_string = num_chars - tail.length
