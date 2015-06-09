@@ -1,7 +1,7 @@
 require "minitest/autorun"
 require_relative "paragraph_truncator.rb"
 
-class CheckSplitterTest < Minitest::Test
+class ParagraphTruncatorTest < Minitest::Test
   # One of my specs is that the tip_amount method should blah blah blah.
 
   # Another spec is that the total_amount method should blah blah blah.
