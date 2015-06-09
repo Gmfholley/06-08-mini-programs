@@ -25,8 +25,8 @@ module PhoneNumberFormatter
   #
   def self.return_phone_num_with_parentheses(number)
     num = return_num_as_string(number)
-    if each_char_is_a_num?(number)
-      if phone_num_right_length?(number)
+    if each_char_is_a_num?(num)
+      if phone_num_right_length?(num)
         return_phone_num_array_with_parenthetical_notation(convert_string_to_phone_num_array(num))
       else
         not_right_num_digits
