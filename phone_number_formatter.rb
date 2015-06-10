@@ -1,3 +1,6 @@
+require "active_support"
+require "active_support/core_ext/numeric/conversions.rb"
+
 module PhoneNumberFormatter
   
   # returns a number formatted as a phone number with dashes
@@ -6,16 +9,7 @@ module PhoneNumberFormatter
   # number - number or string
   #
   def self.return_phone_num_with_dashes(number)
-   num = return_num_as_string(number)
-    if each_char_is_a_num?(num)
-      if phone_num_right_length?(num)
-        join_phone_num_array_by_dashes(convert_string_to_phone_num_array(num))
-      else
-        not_right_num_digits
-      end
-    else
-      not_a_num_error
-    end
+    number.to_i.to_s(:phone)
   end
   
   # returns a number formatted as a phone number with dashes
@@ -24,16 +18,7 @@ module PhoneNumberFormatter
   # number - number or string
   #
   def self.return_phone_num_with_parentheses(number)
-    num = return_num_as_string(number)
-    if each_char_is_a_num?(num)
-      if phone_num_right_length?(num)
-        return_phone_num_array_with_parenthetical_notation(convert_string_to_phone_num_array(num))
-      else
-        not_right_num_digits
-      end
-    else
-      not_a_num_error
-    end
+    number.to_i.to_s(:phone,  area_code: true)
   end
   
   # joins the phone number array with dashes
