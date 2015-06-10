@@ -23,5 +23,10 @@ module ParagraphTruncator
   def self.truncate(string, num_chars)
     string.truncate(num_chars)
   end
+  
+  def self.max_you_can_truncate(string, num_chars)
+    [string.length, num_chars].min
+  end
+  
 
 end
