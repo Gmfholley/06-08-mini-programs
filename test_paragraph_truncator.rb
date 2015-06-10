@@ -24,16 +24,16 @@ class ParagraphTruncatorTest < Minitest::Test
     assert_equal(half_string_plus_dots, half_string)
   end
   
-  def test_max_you_can_truncate
-    long_string = 'a'*100
-    #try to cut off 50 from a string of length 100.  Should be able to take off 50
-    num_you_can = ParagraphTruncator.max_you_can_truncate(long_string, 50)
-    assert_equal(num_you_can, 50)
-    
-    # try to cutt of 101 from a string of length 100.  Should only be able to take off 100
-    num_you_can = ParagraphTruncator.max_you_can_truncate(long_string, 101)
-    assert_equal(num_you_can, 100)
-  end
+  # def test_max_you_can_truncate
+  #   long_string = 'a'*100
+  #   #try to cut off 50 from a string of length 100.  Should be able to take off 50
+  #   num_you_can = ParagraphTruncator.max_you_can_truncate(long_string, 50)
+  #   assert_equal(num_you_can, 50)
+  #
+  #   # try to cutt of 101 from a string of length 100.  Should only be able to take off 100
+  #   num_you_can = ParagraphTruncator.max_you_can_truncate(long_string, 101)
+  #   assert_equal(num_you_can, 100)
+  # end
   
   
   
